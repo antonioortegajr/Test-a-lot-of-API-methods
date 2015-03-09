@@ -2,9 +2,9 @@
 
 function api_call_go($param1) {
 
-  global $api_key, $out_put, $version, $code, $check_json, $response, $url;
+  global $api_key, $out_put, $version, $code, $check_json, $response, $url, $red, $red_close;
 
-
+//GET, PUT, POST, or DELETE passed to function
 $method = $param1;
 
 // headers (required and optional)
@@ -42,7 +42,7 @@ else
     }
 
     else {
-      $length_check = $code . ' code does NOT matches stringth length';
+      $length_check = $red . $code . ' code does NOT matches stringth length' . $red_close;
 
     }
         break;
@@ -59,14 +59,56 @@ else
 
         }
             break;
+
+  }
+
+// return response code explination
+  echo 'Status code: ' . $code;
+  switch ($code) {
+    case 200:
+    echo " All good";
+    break;
+    case 204:
+    echo " We all good, nothing to return.";
+    break;
+    case 400:
+    echo $red . " Required parameter missing or invalid. Check the API endpoint you used. " . $red_close;
+    break;
+    case 401:
+    echo $red . " accesskey not valid or revoked. You could reset the API key. In doing so the client will have to update to the new key. Should reseting not resolve the issue create a ticket. " . $red_close;
+    break;
+    case 403:
+    echo $red . " Call not using SSL (HTTPS). This could the url they set up or the hosting they are using to make the call. In either case there is nothing further to trouble shoot as we can not change their code or upgrade their hosting. (╯'□')╯︵ sdʇʇɥ" . $red_close;
+    break;
+    case 404:
+    echo $red . " The requested URL was not found on this server. Check the API endpoint you used. " . $red_close;
+    break;
+    case 406:
+    echo $red . " No API Key provided this call was not run. (╯°□°)╯︵  ʎǝʞ IԀ∀" . $red_close;
+    break;
+    case 409:
+    echo $red . " Duplicate unique data detected. " . $red_close;
+    break;
+    case 412:
+    echo $red . " Over Hourly API limit. Wait an hour and re check or reset key in middleware. ";
+    break;
+    case 417:
+    echo $red . " Either over 1k in saved links created by API or no title in the saved links PUT request. Check response header for indication " . $red_close;
+    break;
+    case 500:
+    echo $red . " General error. Create a ticket! " . $red_close;
+    break;
+    case 503:
+    echo $red . " Scheduled or emergency API maintenance will result in 503 errors. " . $red_close;
+    break;
+    case 521:
+    echo $red . " Temporary error. There is a possibility that not all API methods are affected. Test and create tickets for affected methods. " . $red_close;
+    break;
   }
 
 
-
-
-
   //use json_decode() to validate the response
-  if ($out == 'json'){
+  if ($out_put == 'json'){
 
   $json_decode_check = $response;
   json_decode($json_decode_check);
@@ -96,10 +138,10 @@ else
 
   };
 
-  echo 'URL enpoint used: ' . $url . '<br><br>';
-  echo 'http status code: ' . $code . '<br><br>';
+  echo '<br><br>URL enpoint used: ' . $url . '<br><br>';
   echo 'json validate: ' . $check_json . '<br><br>';
   echo 'Return length check: ' . $length_check . '<br><br>';
+  echo 'Response body: <br>';
   var_dump($response);
   echo '<hr>';
 

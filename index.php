@@ -1,3 +1,9 @@
+<html>
+<head>
+  <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
 <?php
 //variables from strings and date of test
 $api_key = $_GET["apikey"];
@@ -17,6 +23,10 @@ $sum_component = $l_component + $c_component + $m_component;
 
 // create message with test details
 $reporting_message = ' Test details:<br>API Key: ' . $api_key . '<br>URL Endpoint: ' . $url . '<br>Output: ' . $out_put . '<br>Version: ' . $version . '<br><hr>';
+
+//red div class for errors
+$red = '<div class="red">';
+$red_close = '</div>';
 
 //instructions
 echo '<h1>Test a lot of API methods</h1>';
@@ -173,3 +183,5 @@ else{
 //send email to be added later
 
 ?>
+<body>
+</html>
