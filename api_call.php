@@ -4,7 +4,7 @@ function api_call_go($param1) {
 
   global $api_key, $out_put, $version, $code, $check_json, $response, $url;
 
-
+//GET, PUT, POST, or DELETE passed to function
 $method = $param1;
 
 // headers (required and optional)
