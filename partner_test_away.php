@@ -9,7 +9,7 @@ require_once('api_call.php');
 foreach ($p_meth as $meth){
 
   $url = $test_url . $p_component . '/' . $meth;
-  api_call_go('GET');
+  api_call_go('GET', '');
 
 }
 

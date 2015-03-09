@@ -10,7 +10,8 @@ foreach ($c_meth as $meth){
 //loop through array of mehtods
   $url = $test_url . $c_component . '/' . $meth;
 
-  api_call_go('GET');
+  api_call_go('GET', '');
 
 }
+
 ?>
