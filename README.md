@@ -12,7 +12,7 @@ This script will not employ ancillary keys at this time.
 
 My testing scripting and testing may change in the future.
 
-As new methods are added to an API version this may change the scripting to accommodate these new methods.
+As new methods are added to an API version this may change the scripting to accommodate these new methods. See API docs http://middleware.idxbroker.com/docs/api/overview.php
 
 You can save the url string if you need to run the same test agent in the future.
 
