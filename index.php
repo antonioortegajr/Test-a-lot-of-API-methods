@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>ALL the meth</title>
   <link href="style.css" rel="stylesheet">
 
 </head>
@@ -9,7 +10,7 @@
 $api_key = $_GET["apikey"];
 $out_put = $_GET["output"];
 $version = $_GET["version"];
-$email_report = $_GET["email"];
+//$email_report = $_GET["email"];
 $date = date('l jS \of F Y h:i:s A');
 
 $test_url ="https://api.idxbroker.com/";
@@ -29,7 +30,8 @@ $red = '<div class="red">';
 $red_close = '</div>';
 
 //instructions
-echo '<h1>Test a lot of API methods</h1>';
+echo '<h1>Test a lot of API methods</h1><div class="inline" style="font-size: 2.5em; padding-left:50px">You <div id="heart" class="inline"></div><div class="inline" style="padding-left:120px;">API</div></div><br>';
+
 echo '<p>This is automated testing and reporting of API methods. These tests are looking for the following.
 <ul>
 <li>Expected https response code</li>
@@ -40,7 +42,9 @@ echo '<p>This is automated testing and reporting of API methods. These tests are
 </p>';
 
 //test calls form
-echo '<form action="index.php">
+echo '<p>Choose one or more of the comonents below. Choosing Partner will ignore any other components chosen as the partner calls require a partner level API key.
+</p>
+<form action="index.php">
 Test Partner level API Calls only: <input type="radio" name="Partner" id="partner_call" value="1">
 <br><br>
 Test MLS level API Calls: <input type="radio" name="MLS" id="mls_call" value="2">
@@ -64,9 +68,12 @@ API Key: <input type="text" name="apikey">
   <option value="1.2.0">1.2.0</option>
 </select>
 <br><br>
-Email Report to:<input type="text" name="email">
+(in progress)Email Report to:<input type="text" name="email">
 <br><br>
-<input type="submit" value="Submit"></form>';
+<input type="submit" value="Submit">
+<br><br>
+<a href="http://antoniowp.idxsandbox.com/tools/all_the_meth/index.php">Reload test to clear values</a>
+</form>';
 
 
 //echo out reporting
@@ -103,6 +110,9 @@ switch ($sum_component){
 }
 
 echo '<hr>';
+
+//temp save file
+$file = 'temp.txt';
 
 
 //include test scripts
