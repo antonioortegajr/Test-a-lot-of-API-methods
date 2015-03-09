@@ -1,11 +1,16 @@
 <?php
 
-function api_call_go($param1) {
+function api_call_go($param1, $param2) {
 
-  global $api_key, $out_put, $version, $code, $check_json, $response, $url, $red, $red_close;
+  global $api_key, $out_put, $version, $code, $check_json, $response, $url, $red, $red_close, $response;
 
+$file = 'temp.txt';
 //GET, PUT, POST, or DELETE passed to function
 $method = $param1;
+
+$add =file_get_contents($file);
+
+$url = $url . $add;
 
 // headers (required and optional)
 $headers = array(
@@ -90,7 +95,7 @@ else
     echo $red . " Duplicate unique data detected. " . $red_close;
     break;
     case 412:
-    echo $red . " Over Hourly API limit. Wait an hour and re check or reset key in middleware. ";
+    echo $red . " Over Hourly API limit. Wait an hour and re check or reset key in middleware. " . $red_close;
     break;
     case 417:
     echo $red . " Either over 1k in saved links created by API or no title in the saved links PUT request. Check response header for indication " . $red_close;
@@ -138,13 +143,20 @@ else
 
   };
 
+if ( $url == 'https://api.idxbroker.com/mls/approvedmls'){
+
+  $c = '/' . $components[0]['id'];
+
+file_put_contents($file, $c);
+}
+
+
   echo '<br><br>URL enpoint used: ' . $url . '<br><br>';
   echo 'json validate: ' . $check_json . '<br><br>';
   echo 'Return length check: ' . $length_check . '<br><br>';
   echo 'Response body: <br>';
-  var_dump($response);
+  var_dump($components);
   echo '<hr>';
-
 
 }
 
