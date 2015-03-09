@@ -66,7 +66,7 @@ else
 
 
   //use json_decode() to validate the response
-  if ($out == 'json'){
+  if ($out_put == 'json'){
 
   $json_decode_check = $response;
   json_decode($json_decode_check);
