@@ -18,5 +18,5 @@ You can save the url string if you need to run the same test agent in the future
 
 If you do not wish to deal with my changes to testing criteria, please fork this repo and run as you see fit.
 
-
+Testing for PUT, POST, and DELETE not yet added.
 email report option not quite added yet.
