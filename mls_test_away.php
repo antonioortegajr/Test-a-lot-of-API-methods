@@ -9,7 +9,16 @@ foreach ($m_meth as $meth){
 
   $url = $test_url . $m_component . '/' . $meth;
 
-  api_call_go('GET');
+  api_call_go('GET', '');
+
+
 }
+
+
+//clear temp file after testing
+$c ='';
+
+$current = file_put_contents($file, $c);
+
 
 ?>
