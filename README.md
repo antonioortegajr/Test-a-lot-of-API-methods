@@ -18,5 +18,6 @@ You can save the url string if you need to run the same test agent in the future
 
 If you do not wish to deal with my changes to testing criteria, please fork this repo and develop as you see fit.
 
+Not all GETS are testing a return yet.
 Testing for PUT, POST, and DELETE not yet added.
-email report option not quite added yet.
+Email report option not quite added yet.
