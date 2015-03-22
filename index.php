@@ -10,20 +10,20 @@
 $api_key = $_GET["apikey"];
 $out_put = $_GET["output"];
 $version = $_GET["version"];
-//$email_report = $_GET["email"];
+$email = $_GET["email"];
 $date = date('l jS \of F Y h:i:s A');
 
 $test_url ="https://api.idxbroker.com/";
 
 $p_component = $_GET["Partner"];
-$m_component = $_GET["Client"];
-$c_component = $_GET["MLS"];
+$c_component = $_GET["Client"];
+$m_component = $_GET["MLS"];
 $l_component = $_GET["Lead"];
 //add the component values in string to determin the API calls to make
 $sum_component = $l_component + $c_component + $m_component;
 
 // create message with test details
-$reporting_message = ' Test details:<br>API Key: ' . $api_key . '<br>URL Endpoint: ' . $url . '<br>Output: ' . $out_put . '<br>Version: ' . $version . '<br><hr>';
+$reporting_message = ' Test details:<br>API Key: ' . $api_key . '<br>URL Endpoint: ' . $test_url . '<br>Output: ' . $out_put . '<br>Version: ' . $version . '<br><hr>';
 
 //red div class for errors
 $red = '<div class="red">';
@@ -190,7 +190,20 @@ else{
 
 }
 
-//send email to be added later
+$recreate_test_url = 'http://antoniowp.idxsandbox.com/tools/all_the_meth/index.php?Partner=' . $p_component . 'Client=' . $c_component . 'MLS=' . $m_component . 'Client=' . $c_component . 'Lead=' . $c_component . '&apikey=' . $api_key . '&output=' . $out_put . '&version=' . $version;
+
+
+  //send me an email
+  $to      = $email;
+  $subject = 'IDX Broker API Error Testing Report for ' . $date;
+  $message = $email_report . '    To recreate this test visit or share this url: ' . $recreate_test_url;
+  $headers = 'From: antonio@idxbroker.com' . "\r\n" .
+      'Reply-To: antonio@idxbroker.com' . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();
+
+  mail($to, $subject, $message, $headers);
+
+
 
 ?>
 <body>
