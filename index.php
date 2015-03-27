@@ -191,10 +191,6 @@ else{
 }
 
 
-echo $email_report;
-
-/*
-
 $recreate_test_url = 'http://antoniowp.idxsandbox.com/tools/all_the_meth/index.php?Partner=' . $p_component . '&Client=' . $c_component . '&MLS=' . $m_component . '&Client=' . $c_component . '&Lead=' . $c_component . '&apikey=' . $api_key . '&output=' . $out_put . '&version=' . $version;
 
 
@@ -209,7 +205,7 @@ $recreate_test_url = 'http://antoniowp.idxsandbox.com/tools/all_the_meth/index.p
 
   mail($to, $subject, $message, $headers);
 
-*/
+
 
 ?>
 <body>
