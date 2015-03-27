@@ -1,19 +1,26 @@
 <?php
 
+/*
+Trying to get PUT and POST worked into this.
+
+
+*/
+
 function api_call_go($param1, $param2) {
 
-  global $api_key, $out_put, $version, $code, $check_json, $response, $url, $red, $red_close, $response, $email_report;
+  global $api_key, $out_put, $version, $code, $check_json, $response, $url, $red, $red_close, $response, $email_report, $data, $c;
 
 $file = 'temp.txt';
 
 //GET, PUT, POST, or DELETE passed to function
+
 $method = $param1;
 
 $add =file_get_contents($file);
 
 $url = $url . $add;
 
-$issue_found = '   **issue found** Endpoint: ' . $url . ' Failed to pass: ';
+$issue_found = '   **issue found** *version used: ' . $version . ' Call type: ' . $method . '* Endpoint: ' . $url . ' Failed to pass: ';
 
 // headers (required and optional)
 $headers = array(
@@ -29,6 +36,14 @@ curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
+
+if ($method !== 'GET'){
+    curl_setopt($handle, CURLOPT_CUSTOMREQUEST, $method);
+
+// send the data
+curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
+}
+
 // exec the cURL request and returned information. Store the returned HTTP code in $code for later reference
 $response = curl_exec($handle);
 $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
@@ -173,6 +188,32 @@ if ( $url == 'https://api.idxbroker.com/mls/approvedmls'){
 
 file_put_contents($file, $c);
 }
+
+//for saved links methods store the savelink ID
+
+/*if ($method == 'PUT' && $method !== 'POST'){
+
+  $c = '/' . $components['newID'];
+
+file_put_contents($file, $c);
+}
+*/
+
+switch ($method){
+  case 'PUT':
+  $c = '/' . $components['newID'];
+  file_put_contents($file, $c);
+  break;
+  case "POST":
+  $c = $c;
+  break;
+  case "DELETE":
+  $c = $c;
+  break;
+
+}
+
+
 
 
   echo '<br><br>URL enpoint used: ' . $url . '<br><br>';
