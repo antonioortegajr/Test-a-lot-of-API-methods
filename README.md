@@ -20,4 +20,4 @@ If you do not wish to deal with my changes to testing criteria, please fork this
 
 Not all GETS are testing a return yet.
 Testing for PUT, POST, and DELETE not yet added.
-Email report option not quite added yet.
+
