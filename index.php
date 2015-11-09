@@ -1,6 +1,9 @@
 <html>
 <head>
   <title>ALL the meth</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link href="style.css" rel="stylesheet">
 
 </head>
@@ -66,6 +69,7 @@ API Key: <input type="text" name="apikey">
   <option value="1.0.4">1.0.4</option>
   <option value="1.1.1">1.1.1</option>
   <option value="1.2.0">1.2.0</option>
+  <option value="1.2.0">1.2.1</option>
 </select>
 <br><br>
 (in progress)Email Report to:<input type="text" name="email">
@@ -131,58 +135,58 @@ else{
   switch ($sum_component){
 
     case 2:
-        echo '<br><h1>begin MLS API testing</h1><br>';
+        echo '<br><h1>begin MLS API testing</h1><br><div id="accordion">';
         include 'mls_test_away.php';
         echo '<br><br><h1>end MLS API testing</h1><br>';
         break;
 
     case 5:
-        echo '<br><h1>begin MLS API testing</h1><br>';
+        echo '<br><h1>begin MLS API testing</h1><br><div id="accordion">';
         include 'mls_test_away.php';
         echo '<br><h1><br>end MLS API testing</h1><br>';
-        echo '<br><h1>begin Client API testing</h1><br>';
+        echo '<br><h1>begin Client API testing</h1><br><div id="accordion">';
         include 'client_test_away.php';
         echo '<br><br><h1>end Cleint API testing</h1><br>';
         break;
 
     case 6:
-        echo '<br><h1>begin MLS API testing</h1><br>';
+        echo '<br><h1>begin MLS API testing</h1><br><div id="accordion">';
         include 'mls_test_away.php';
         echo '<br><h1>end MLS API testing</h1><br>';
-        echo '<br><h1>begin Leads API testing</h1><br>';
+        echo '<br><h1>begin Leads API testing</h1><br><div id="accordion">';
         include 'leads_test_away.php';
         echo '<br><h1>end Leads API testing</h1><br>';
         break;
 
     case 9:
-        echo '<br><h1>begin MLS API testing</h1><br>';
+        echo '<br><h1>begin MLS API testing</h1><br><div id="accordion">';
         include 'mls_test_away.php';
         echo '<br><br><h1>end MLS API testing</h1><br>';
-        echo '<br><h1>begin Client API testing</h1><br>';
+        echo '<br><h1>begin Client API testing</h1><br><div id="accordion">';
         include 'client_test_away.php';
         echo '<br><br><h1>end Client API testing</h1><br>';
-        echo '<br><h1>begin Leads API testing</h1><br>';
+        echo '<br><h1>begin Leads API testing</h1><br><div id="accordion">';
         include 'leads_test_away.php';
         echo '<br><br><h1>end Leads API testing</h1><br>';
         break;
 
     case 3:
-        echo '<br><h1>begin Client API testing</h1><br>';
+        echo '<br><h1>begin Client API testing</h1><br><div id="accordion">';
         include 'client_test_away.php';
         echo '<br><br><h1>end Client API testing</h1><br>';
         break;
 
     case 7:
-        echo '<br><h1>begin Client API testing</h1><br>';
+        echo '<br><h1>begin Client API testing</h1><br><div id="accordion">';
         include 'client_test_away.php';
         echo '<br><br><h1>end Client API testing</h1><br>';
-        echo '<br><h1>begin Leads API testing</h1><br>';
+        echo '<br><h1>begin Leads API testing</h1><br><div id="accordion">';
         include 'leads_test_away.php';
         echo '<br><br><h1>end Leads API testing</h1><br>';
         break;
 
     case 4:
-        echo '<br><h1>begin Leads API testing</h1><br>';
+        echo '<br><h1>begin Leads API testing</h1><br><div id="accordion">';
         include 'leads_test_away.php';
         echo '<br><br><h1>end MLS API testing</h1><br>';
 

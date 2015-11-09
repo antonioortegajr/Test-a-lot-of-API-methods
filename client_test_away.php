@@ -33,7 +33,7 @@ $data = array(
     'linkName'=>'Good_side_of_tracks_editd', // the link's url
     'pageTitle'=>'Good_side_of_tracks_edited', // the title tag
     'linkTitle'=>'Good_side_of_tracks_edited', // how the link displays
-    'queryString'=>array('idxID'=>'a001','hp'=>200000)
+    'queryString'=>array('idxID'=>'a001','hp'=>999999)
 );
 api_call_go('DELETE', '');
 

@@ -1,11 +1,5 @@
 <?php
 
-/*
-Trying to get PUT and POST worked into this.
-
-
-*/
-
 function api_call_go($param1, $param2) {
 
   global $api_key, $out_put, $version, $code, $check_json, $response, $url, $red, $red_close, $response, $email_report, $data, $c;
@@ -173,55 +167,46 @@ else
     $email_report = $email_report . $issue_found .$check_json;
     break;
     default:
-    $check_json =  ' - Unknown json error';
+    $check_json =  ' - Unknown json error broh';
     $email_report = $email_report . $issue_found .$check_json;
     break;
   }
 
   };
 
-//for MLS methods store the first approved MLS in the account
-
-if ( $url == 'https://api.idxbroker.com/mls/approvedmls'){
-
-  $c = '/' . $components[0]['id'];
-
-file_put_contents($file, $c);
-}
-
-//for saved links methods store the savelink ID
-
-/*if ($method == 'PUT' && $method !== 'POST'){
-
-  $c = '/' . $components['newID'];
-
-file_put_contents($file, $c);
-}
-*/
-
 switch ($method){
-  case 'PUT':
-  $c = '/' . $components['newID'];
-  file_put_contents($file, $c);
-  break;
-  case "POST":
-  $c = $c;
-  break;
-  case "DELETE":
-  $c = $c;
-  break;
-
+    case 'GET':
+    $c = '';
+    break;
+    case 'PUT':
+    switch ($url ){
+      case 'https://api.idxbroker.com/clients/savedlinks':
+      $c = '/' . $components['newID'];
+      break;
+      case "https://api.idxbroker.com/mls/approvedmls":
+      $c = '/' . $components[0]['id'];
+      break;
+      case "https://api.idxbroker.com/leads/lead":
+      $c = '/' . $components['id'];
+      break;
+    }
+    break;
+    case 'POST':
+    $c = $c;
+    break;
+    case 'DELETE':
+    $c = '';
+    break;
 }
+file_put_contents($file, $c);
 
 
-
-
-  echo '<br><br>URL enpoint used: ' . $url . '<br><br>';
+  echo '<br><br><div id="accordion">URL enpoint used: ' . $url . '<br><br>';
   echo 'json validate: ' . $check_json . '<br><br>';
   echo 'Return length check: ' . $length_check . '<br><br>';
-  echo 'Response body: <br>';
+  echo '</h3>Response body: <br><div id="output">';
   var_dump($components);
-  echo '<hr>';
+  echo '</div></div><hr>';
 
 }
 
