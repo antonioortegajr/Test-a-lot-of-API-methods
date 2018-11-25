@@ -1,6 +1,8 @@
+# This repo is not longer used. Postman collections are used for testing.
+
 This is a collection of tests for the IDX Broker API.
 
-#Standard Disclaimer: 
+# Standard Disclaimer: 
 This code is not official IDX Broker code. It does use their API, but in NO WAY is it supported by IDX Broker. DO NOT contact IDX Broker for any support of this code. This alo applies to any CRM in this repo. It does use their API, but in NO WAY is it supported by them. DO NOT contact them for any support of this code.
 
 This repo uses a lot of API calls. Keep that in mind if you choose to run these with your API key.
